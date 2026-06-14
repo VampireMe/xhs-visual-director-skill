@@ -94,6 +94,25 @@
 | 07 | 总结 |  |  |  |  |
 | 08 | 引导 |  |  |  |  |
 
+# 统一视觉母版
+
+画布：1080x1440px，strict 3:4 vertical portrait canvas，no square，no landscape。
+安全边距：
+网格：
+标题区：
+正文区：
+页码 / 角标：
+色彩令牌：
+字体令牌：
+组件语言：
+节奏规则：
+
+母版锁定前缀：
+
+```text
+Series visual master lock: create one page of the same Xiaohongshu carousel series, 1080x1440px, strict 3:4 vertical portrait canvas, no square, no landscape, no crop, no extra border. Keep identical canvas ratio, identical safe margins, identical typography system, identical page-number position, identical color tokens, identical card radius, identical line weight, and identical icon style across all pages. Use a 12-column grid and 8px spacing system. Keep text-safe zones clean and high contrast. This page belongs to the same visual series as the other pages; only the main visual and information structure may change.
+```
+
 # 逐页详细规划
 
 ## Page 01｜封面
@@ -150,6 +169,9 @@
 - [ ] 封面有冲击力。
 - [ ] 标题足够大。
 - [ ] 手机端能读清。
+- [ ] 每页画幅都锁定 1080x1440px / 3:4 竖版。
+- [ ] 每页提示词都复制了同一段母版锁定前缀。
+- [ ] 每页安全边距、页码、角标位置一致。
 - [ ] 信息层级清楚。
 - [ ] 风格统一。
 - [ ] 有收藏价值。
@@ -160,4 +182,3 @@
 - [ ] 封面和内页有节奏变化。
 - [ ] 主风格和辅助风格合理。
 ```
-

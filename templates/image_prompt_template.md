@@ -2,10 +2,24 @@
 
 使用方式：复制对应风格模板，把 `[主题]`、`[标题]`、`[页面任务]`、`[核心元素]` 替换为当前内容。默认建议后期添加中文文字；如果模型中文能力弱，请要求“只生成可排版背景和文字占位”。
 
+## 多页图文母版锁定前缀
+
+生成多页图文时，先确定一套统一视觉母版，并把下面这段复制到每一页提示词开头。不要只写在总说明里。
+
+```text
+Series visual master lock: create one page of the same Xiaohongshu carousel series, 1080x1440px, strict 3:4 vertical portrait canvas, no square, no landscape, no crop, no extra border. Keep identical canvas ratio, identical safe margins, identical typography system, identical page-number position, identical color tokens, identical card radius, identical line weight, and identical icon style across all pages. Use a 12-column grid and 8px spacing system. Keep text-safe zones clean and high contrast. This page belongs to the same visual series as the other pages; only the main visual and information structure may change.
+```
+
+每页提示词都要继续说明：
+
+- 沿用元素：背景、色彩、字体、角标、页码、卡片、线条、图标。
+- 本页变化：只写本页独有主视觉和信息结构。
+- 比例限制：`1080x1440px, strict 3:4 vertical portrait, no square, no landscape`。
+
 ## 通用负面提示词
 
 ```text
-不要廉价蓝紫渐变，不要随机霓虹线条，不要文字变形，不要小字堆积，不要 PPT bullet 列表，不要塑料质感，不要儿童卡通，不要低清晰度，不要过度装饰，不要元素遮挡标题，不要页码喧宾夺主。
+不要廉价蓝紫渐变，不要随机霓虹线条，不要文字变形，不要小字堆积，不要 PPT bullet 列表，不要塑料质感，不要儿童卡通，不要低清晰度，不要过度装饰，不要元素遮挡标题，不要页码喧宾夺主，不要方图，不要横图，不要裁切，不要改变画幅比例，不要改变安全边距，不要每页换模板，不要随机改变页码位置，不要不一致的卡片圆角，不要不一致的线条粗细。
 ```
 
 ## 1. 深色科技杂志风
@@ -16,8 +30,10 @@
 - 版式结构：左上大标题，右下主视觉，中部结构线，底部小注释。
 
 ```text
-生成一张 3:4 竖版小红书图文页面，主题是「[主题]」，页面任务是「[页面任务]」。使用深色科技杂志风：黑色和深灰背景，极细网格和结构线，右下角有抽象 Agent 网络 / 代码窗口 / 数据流作为主视觉，左上保留大标题安全区，标题使用粗黑体无衬线，正文使用小号 Inter 风格。色彩以银白和灰色为主，只用少量荧光绿强调关键词、编号或连线。画面要像高端 AI 产品发布杂志封面，留白清晰，信息层级明确。不要生成真实中文正文，只保留清晰文字占位区。
-负面：廉价蓝紫渐变、随机霓虹、文字变形、复杂无意义背景、字号过小、PPT 列表。
+Series visual master lock: create one page of the same Xiaohongshu carousel series, 1080x1440px, strict 3:4 vertical portrait canvas, no square, no landscape, no crop, no extra border. Keep identical canvas ratio, identical safe margins, identical typography system, identical page-number position, identical color tokens, identical card radius, identical line weight, and identical icon style across all pages. Use a 12-column grid and 8px spacing system. Keep text-safe zones clean and high contrast. This page belongs to the same visual series as the other pages; only the main visual and information structure may change.
+
+生成一张 1080x1440px、strict 3:4 vertical portrait 的小红书图文页面，主题是「[主题]」，页面任务是「[页面任务]」。使用深色科技杂志风：黑色和深灰背景，极细网格和结构线，右下角有抽象 Agent 网络 / 代码窗口 / 数据流作为主视觉，左上保留大标题安全区，标题使用粗黑体无衬线，正文使用小号 Inter 风格。色彩以银白和灰色为主，只用少量荧光绿强调关键词、编号或连线。沿用整套图文的安全边距、页码位置、卡片圆角、线条粗细和字体系统。画面要像高端 AI 产品发布杂志封面，留白清晰，信息层级明确。不要生成真实中文正文，只保留清晰文字占位区。
+负面：廉价蓝紫渐变、随机霓虹、文字变形、复杂无意义背景、字号过小、PPT 列表、方图、横图、裁切、不同页面版式漂移。
 ```
 
 ## 2. 黑白灰 + 荧光绿冲击风
@@ -295,4 +311,3 @@
 生成一张 3:4 竖版小红书高级工具清单页，主题是「[主题]」。用统一卡片网格展示 6-8 个工具，每张卡有图标占位、工具名、使用场景一句话和推荐标签。顶部有大标题和分类标签，背景深色或浅灰都可，卡片间距一致，信息清晰，适合收藏。
 负面：图标模糊、卡片拥挤、应用商店截图感、文字太小。
 ```
-

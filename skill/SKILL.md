@@ -37,6 +37,7 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 - 需要生成图像提示词时，读取 `templates/image_prompt_template.md` 和 `docs/prompt_rules.md`。
 - 需要审查页面高级感和可读性时，读取 `templates/visual_review_checklist.md` 和 `docs/anti_patterns.md`。
 - 需要快速套用完整输出格式时，读取 `templates/xhs_carousel_plan_template.md`。
+- 需要生成多页图文或多张图片时，必须先读取 `docs/visual_consistency_protocol.md`，并为整套图文生成“统一视觉母版”。
 - 需要参考真实案例时，优先读取 `examples/style_reference_notes.md`，再按主题读取其他 examples。
 
 如果用户只问一个很小的问题，例如“这页排版怎么优化”，不必输出完整 8 页规划；但仍要先用简短方式判断内容任务和适合风格。
@@ -67,6 +68,8 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 ### 画幅比例
 
 - 默认使用 3:4 竖版图文比例。
+- 多页图文必须锁定同一画布比例，推荐明确写作 `1080x1440px, 3:4 vertical portrait canvas`。
+- 每一页提示词都必须重复画幅约束：`strict 3:4 vertical portrait, not square, not landscape, no extra border, no crop`。
 - 适合小红书封面与内页。
 - 页面不能像普通 PPT 截图，必须像社交媒体图文卡片。
 - 手机端阅读优先，字不能太小，重点信息必须一眼能读懂。
@@ -212,6 +215,25 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 
 不要机械套模板，要根据选题变化。
 
+### Step 5.5：建立统一视觉母版
+
+生成多页图文、封面系列或每页图像提示词之前，必须先输出“统一视觉母版”。母版是后续每一页提示词的硬约束，不是可选建议。
+
+统一视觉母版必须包含：
+
+- 固定画布：`1080x1440px, 3:4 vertical portrait canvas`。
+- 安全边距：默认左右 72px、上下 80px；封面可更大，但整套必须一致。
+- 固定网格：例如 12 列网格、8px 基准间距、统一卡片圆角。
+- 标题区：固定位置、宽度比例、最大行数。
+- 正文区：固定文字密度和行数。
+- 页码 / 角标：固定位置、大小和样式。
+- 组件语言：统一卡片、线条、箭头、标签、图标风格。
+- 色彩令牌：背景色、主文字色、辅助文字色、强调色。
+- 字体令牌：中文标题、中文正文、英文注释的风格。
+- 节奏规则：允许每页构图变化，但不得改变画幅、边距、字体系统、页码位置和核心色彩。
+
+后续每一页的图像提示词必须以同一段“母版锁定前缀”开头。不要只在总说明里写一次。
+
 ### Step 6：生成每一页内容
 
 每一页必须输出：
@@ -241,6 +263,7 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 图像提示词必须适合生成 3:4 小红书图文。每条提示词必须包含：
 
 - 画幅比例
+- 明确尺寸或比例锁定：`1080x1440px, strict 3:4 vertical portrait`
 - 背景风格
 - 主体布局
 - 文字区域规划
@@ -252,6 +275,14 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 - 禁止项
 
 提示词要偏视觉导演语言，而不是空泛形容词。不要只写“高级、科技、好看”，必须说明怎么高级、怎么科技、怎么好看。
+
+多页图文提示词额外要求：
+
+- 每条提示词都必须复制同一段“母版锁定前缀”。
+- 每条提示词都要写清楚“沿用上一页的哪些视觉元素”。
+- 每条提示词都要写清楚“本页只变化什么”，例如主视觉、信息结构或情绪强度。
+- 不允许不同页面使用不同画幅、不同安全边距、不同字体系统或不同页码位置。
+- 负面提示词必须包含：`no square image, no landscape, no inconsistent margins, no different template, no random layout shift`。
 
 ### Step 8：视觉审查
 
@@ -316,6 +347,19 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 
 | 页码 | 页面任务 | 标题 | 视觉关键词 | 读者情绪 | 使用风格 |
 | --- | --- | --- | --- | --- | --- |
+
+# 统一视觉母版
+
+画布：
+安全边距：
+网格：
+标题区：
+正文区：
+页码 / 角标：
+色彩令牌：
+字体令牌：
+组件语言：
+母版锁定前缀：
 
 # 逐页详细规划
 
