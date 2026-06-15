@@ -4,8 +4,9 @@
 
 ## 强制原则
 
-- 多页图文必须先建立统一视觉母版，再写每一页提示词。
+- 多页图文必须先建立统一视觉母版，再生成 1 张视觉确认图；用户确认后再生成整套最终图片。
 - 统一母版不是总说明，而是每一页提示词都必须重复的硬约束。
+- 提示词是图片生成记录，不是最终交付物；用户要图文时必须交付图片文件。
 - 页面可以有节奏变化，但不能改变画布比例、边距、字体系统、页码位置、主色和组件语言。
 - 图像模型容易忽略“默认 3:4”，所以每条提示词都要写 `1080x1440px, strict 3:4 vertical portrait canvas`。
 - 负面提示词必须明确禁止：square、landscape、different template、inconsistent margins、random layout shift。
@@ -27,7 +28,7 @@
 
 ## 母版锁定前缀
 
-每一页图像提示词开头都要复制下面这段，再追加本页内容：
+每一页图像生成提示词开头都要复制下面这段，再追加本页内容。确认图和最终图都必须使用同一段前缀：
 
 ```text
 Series visual master lock: create one page of the same Xiaohongshu carousel series, 1080x1440px, strict 3:4 vertical portrait canvas, no square, no landscape, no crop, no extra border. Keep identical canvas ratio, identical safe margins, identical typography system, identical page-number position, identical color tokens, identical card radius, identical line weight, and identical icon style across all pages. Use a 12-column grid and 8px spacing system. Keep text-safe zones clean and high contrast. This page belongs to the same visual series as the other pages; only the main visual and information structure may change.
@@ -53,6 +54,9 @@ Page [页码] / [页面任务]
 
 ## 系列一致性自检
 
+- [ ] 是否先生成了 1 张视觉确认图。
+- [ ] 用户是否确认视觉方向。
+- [ ] 是否已经生成最终图片文件，而不是只输出提示词。
 - [ ] 每条提示词都写了 `1080x1440px`。
 - [ ] 每条提示词都写了 `strict 3:4 vertical portrait`。
 - [ ] 每条提示词都禁止 square 和 landscape。

@@ -17,6 +17,7 @@
 - 新增风格时必须同时更新 `docs/style_system.md` 和 `templates/image_prompt_template.md`。
 - 任何输出都必须先判断内容，再选择风格。
 - 当用户信息不足时，必须先走苏格拉底式提问澄清，不要直接生成完整方案。
+- 当用户要求生成图文图片时，最终交付物必须是图片文件；默认先生成 1 张视觉确认图，确认后再生成整套最终图，不要停留在模板或提示词。
 - 不要默认套黑色科技风。
 - 不要把可读的风格判断报告写成隐藏思考链。
 
@@ -30,6 +31,7 @@
 - `docs/anti_patterns.md`：用户不喜欢的风格和避免方法。
 - `docs/socratic_questioning_protocol.md`：信息不足时的 10-20 问澄清流程。
 - `docs/visual_consistency_protocol.md`：多页图文比例、版式、边距、页码和提示词一致性协议。
+- `docs/final_image_generation_workflow.md`：先生成视觉确认图、再批量生成最终图片的交付流程。
 - `templates/`：可复用输出模板。
 - `examples/`：可复用案例，新增案例必须具体、完整、可模仿。
 

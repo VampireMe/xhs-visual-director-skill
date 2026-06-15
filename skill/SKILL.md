@@ -38,6 +38,7 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 - 需要审查页面高级感和可读性时，读取 `templates/visual_review_checklist.md` 和 `docs/anti_patterns.md`。
 - 需要快速套用完整输出格式时，读取 `templates/xhs_carousel_plan_template.md`。
 - 需要生成多页图文或多张图片时，必须先读取 `docs/visual_consistency_protocol.md`，并为整套图文生成“统一视觉母版”。
+- 用户要求“生成图文”“开始生成”“做成小红书图片”时，默认最终交付物是图片文件，不是仅输出模板或提示词；必须先生成 1 张视觉确认图，确认后再批量生成最终图。
 - 用户输入信息很少、目标不清、素材不足、风格依据不足或需求可能误判时，必须先读取 `docs/socratic_questioning_protocol.md`，进入苏格拉底式提问澄清流程。
 - 需要参考真实案例时，优先读取 `examples/style_reference_notes.md`，再按主题读取其他 examples。
 
@@ -303,9 +304,30 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 
 后续每一页的图像提示词必须以同一段“母版锁定前缀”开头。不要只在总说明里写一次。
 
-### Step 6：生成每一页内容
+### Step 6：生成视觉确认图
 
-每一页必须输出：
+在生成整套图片前，默认先生成 1 张“视觉确认图”，通常选择封面 Page 01；如果封面不是最能代表风格的页面，可以选择最关键的内页。
+
+视觉确认图规则：
+
+- 必须是最终图像方向，不是文字模板、线框图或纯提示词。
+- 必须使用统一视觉母版。
+- 必须锁定 `1080x1440px, strict 3:4 vertical portrait canvas`。
+- 必须体现主风格、色彩令牌、字体层级、卡片/线条语言和页码位置。
+- 中文正文如果图像模型不稳定，可先生成“可排版底图 + 清晰文字安全区”，但要说明后续会叠加最终中文。
+- 生成后必须让用户确认：通过 / 调整风格 / 调整构图 / 调整色彩 / 调整信息密度。
+- 用户确认前，不要批量生成整套最终图。
+
+视觉确认图输出后，必须附上：
+
+- 确认图路径或预览。
+- 本图验证了哪些视觉规则。
+- 需要用户确认的 3-5 个点。
+- 如果用户说“确认”“通过”“可以”“继续”，进入 Step 7。
+
+### Step 7：生成每一页最终图片
+
+用户确认视觉方向后，直接生成整套最终图片。每一页必须先完成内容字段，再用图像生成工具生成图片文件：
 
 - 页面标题
 - 页面副标题
@@ -326,10 +348,22 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 - 色彩建议
 - 图像生成提示词
 - 负面提示词
+- 最终图片路径
+- 图片比例检查结果
+- 是否需要后期叠加中文
 
-### Step 7：生成图像提示词
+生成规则：
 
-图像提示词必须适合生成 3:4 小红书图文。每条提示词必须包含：
+- 默认生成 6-8 张最终图；用户没有指定页数时默认 8 张。
+- 每张图必须是同一系列的最终视觉图，不要只输出方案或模板。
+- 每张图都必须使用同一段母版锁定前缀。
+- 每张图生成后应保存到本地项目目录，并按 `page-01.png`、`page-02.png` 命名。
+- 生成后检查所有图片比例是否一致；比例不一致时必须重新生成或标记需要修正。
+- 提示词作为生成记录保留，但不是最终交付物。
+
+### Step 8：生成图像提示词记录
+
+图像提示词仍然必须输出或记录，作为复用和返工依据，但不能替代最终图片。每条提示词必须包含：
 
 - 画幅比例
 - 明确尺寸或比例锁定：`1080x1440px, strict 3:4 vertical portrait`
@@ -353,7 +387,7 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 - 不允许不同页面使用不同画幅、不同安全边距、不同字体系统或不同页码位置。
 - 负面提示词必须包含：`no square image, no landscape, no inconsistent margins, no different template, no random layout shift`。
 
-### Step 8：视觉审查
+### Step 9：视觉审查
 
 每次输出后，必须附带检查清单：
 
@@ -369,8 +403,11 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 - 是否太像廉价 AI 模板
 - 封面和内页是否有节奏变化
 - 主风格和辅助风格是否合理
+- 是否已经生成最终图片，而不是只输出模板
+- 是否先生成过视觉确认图并获得用户确认
+- 所有图片比例是否一致
 
-### Step 9：发布文案
+### Step 10：发布文案
 
 最后输出：
 
@@ -436,6 +473,13 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 组件语言：
 母版锁定前缀：
 
+# 视觉确认图
+
+确认图页面：
+确认图路径：
+验证点：
+请用户确认：
+
 # 逐页详细规划
 
 ## Page 01｜封面
@@ -457,6 +501,8 @@ description: Use this skill when planning, redesigning, or reviewing Xiaohongshu
 字体：
 图像生成提示词：
 负面提示词：
+最终图片路径：
+比例检查：
 
 # 统一视觉规范
 

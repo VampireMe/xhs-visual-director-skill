@@ -161,6 +161,26 @@
 Series visual master lock: create one page of the same Xiaohongshu carousel series, 1080x1440px, strict 3:4 vertical portrait canvas, no square, no landscape, no crop, no extra border. Keep identical canvas ratio, identical safe margins, identical typography system, identical page-number position, identical color tokens, identical card radius, identical line weight, and identical icon style across all pages. Use a 12-column grid and 8px spacing system. Keep text-safe zones clean and high contrast. This page belongs to the same visual series as the other pages; only the main visual and information structure may change.
 ```
 
+# 视觉确认图
+
+确认图页面：默认 Page 01｜封面
+确认图生成状态：
+确认图路径：
+确认图验证点：
+- 画幅比例：
+- 主风格：
+- 色彩令牌：
+- 标题安全区：
+- 主视觉方向：
+- 页码 / 角标：
+
+请用户确认：
+- [ ] 风格气质是否正确。
+- [ ] 画面冲击力是否足够。
+- [ ] 信息密度是否合适。
+- [ ] 色彩是否符合预期。
+- [ ] 是否继续生成整套最终图。
+
 # 逐页详细规划
 
 ## Page 01｜封面
@@ -182,6 +202,9 @@ Series visual master lock: create one page of the same Xiaohongshu carousel seri
 字体：
 图像生成提示词：
 负面提示词：
+最终图片路径：
+比例检查：
+是否需要后期叠加中文：
 
 # 统一视觉规范
 
@@ -220,6 +243,8 @@ Series visual master lock: create one page of the same Xiaohongshu carousel seri
 - [ ] 每页画幅都锁定 1080x1440px / 3:4 竖版。
 - [ ] 每页提示词都复制了同一段母版锁定前缀。
 - [ ] 每页安全边距、页码、角标位置一致。
+- [ ] 已先生成视觉确认图并获得用户确认。
+- [ ] 已生成最终图片，而不是只输出模板或提示词。
 - [ ] 信息层级清楚。
 - [ ] 风格统一。
 - [ ] 有收藏价值。
