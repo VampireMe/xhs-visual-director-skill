@@ -16,6 +16,7 @@
 - 风格库必须可扩展。
 - 新增风格时必须同时更新 `docs/style_system.md` 和 `templates/image_prompt_template.md`。
 - 任何输出都必须先判断内容，再选择风格。
+- 当用户信息不足时，必须先走苏格拉底式提问澄清，不要直接生成完整方案。
 - 不要默认套黑色科技风。
 - 不要把可读的风格判断报告写成隐藏思考链。
 
@@ -27,6 +28,8 @@
 - `docs/page_structure_rules.md`：封面、内页、结尾页的页面结构规则。
 - `docs/prompt_rules.md`：图像生成提示词写法、负面提示词规则、文字区域规划。
 - `docs/anti_patterns.md`：用户不喜欢的风格和避免方法。
+- `docs/socratic_questioning_protocol.md`：信息不足时的 10-20 问澄清流程。
+- `docs/visual_consistency_protocol.md`：多页图文比例、版式、边距、页码和提示词一致性协议。
 - `templates/`：可复用输出模板。
 - `examples/`：可复用案例，新增案例必须具体、完整、可模仿。
 
